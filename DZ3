@@ -1,1 +1,50 @@
-DZ3
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DZ3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите первое число:");
+             double first = Convert.ToDouble(Console.ReadLine());
+
+             Console.WriteLine("Введите второе число:");
+             double Second = Convert.ToDouble(Console.ReadLine());
+
+             double Summa = first + Second;
+             Console.WriteLine($"Сумма чисел: {Summa}");
+
+            // Игра
+            Random random = new Random();
+            int Robot = random.Next(1, 100);
+            int User = 0;
+            Console.WriteLine("А теперь поиграем в игру! Попробуй угадать число от 1 до 100:");
+ 
+
+            while (User != Robot)
+            {
+                Console.WriteLine("Введите число:");
+                User = Convert.ToInt32(Console.ReadLine());
+
+                if (User < Robot)
+                {
+                    Console.WriteLine("Загаданное число больше");
+                }
+                else if (User > Robot)
+                {
+                    Console.WriteLine("Загаданное число меньше");
+                }
+                else
+                {
+                    Console.WriteLine("Поздравляю! Ты угадал(а) число.");
+                    Console.ReadLine();
+                }
+            }
+        }
+    }
+}
