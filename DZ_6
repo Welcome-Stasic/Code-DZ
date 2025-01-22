@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Race
+{
+    abstract class Vehicle
+    {
+        public string Name { get; set; }
+        public double Speed { get; set; }
+
+        public abstract void Move();
+
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Транспортное средство: {Name}, Скорость: {Speed} км/ч");
+        }
+    }
+
+    class Car : Vehicle
+    {
+        public Car(string name, double speed)
+        {
+            Name = name;
+            Speed = speed;
+        }
+
+        public override void Move()
+        {
+            Console.WriteLine($"{Name} едет по дороге.");
+        }
+    }
+
+    class Bicycle : Vehicle
+    {
+        public Bicycle(string name, double speed)
+        {
+            Name = name;
+            Speed = speed;
+        }
+
+        public override void Move()
+        {
+            Console.WriteLine($"{Name} едет по тротуару.");
+        }
+    }
+
+    class Boat : Vehicle
+    {
+        public Boat(string name, double speed)
+        {
+            Name = name;
+            Speed = speed;
+        }
+
+        public override void Move()
+        {
+            Console.WriteLine($"{Name} плывёт по воде.");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            Vehicle car = new Car("Автомобиль", 120.4);
+            Vehicle bicycle = new Bicycle("Велосипед", 25.5);
+            Vehicle boat = new Boat("Лодка", 30.7);
+
+            car.DisplayInfo();
+            car.Move();
+
+            bicycle.DisplayInfo();
+            bicycle.Move();
+
+            boat.DisplayInfo();
+            boat.Move();
+
+            Console.ReadLine();
+        }
+    }
+}
